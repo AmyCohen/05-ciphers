@@ -1,9 +1,4 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
-import Ciphers.Cipher;
-import Ciphers.ROT13Cipher;
-import Ciphers.CaesarShiftCipher;
-import Ciphers.KeywordCipher;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,19 +7,10 @@ public class Main {
         cipherSelection();
 
         /*
-        Select your operation
-        1: encode
-        2: decode
-        Your choice: 1
+        Add a response that tells the user what selection they have made. Cannot just say "string" + selection. Must include an if statement that checks for the selection to allow for the proper text to display.
 
-        Select your cipher
-        1: Plain Text Cipher
-        2: ROT13 Cipher
-        3: Caesar Shift Cipher
-        4: Keyword Cipher
-        Your choice: 1
-
-        You're encoding with the Plain Text Cipher.
+        if (selection.equals("1") {
+        System.out.println("You're encoding with the Plain Text Cipher.")
 
          plaintext: hello
         ciphertext: hello
@@ -33,9 +19,11 @@ public class Main {
 
 
     /*
-    Should operation and selection be combined to allow for an if 1 and if 1 then run plain text cipher type of logic? if not then what is actually happening when a selection is made? Which cipher does it not to use for encoding. Create logic to support the users choice.
+    Write a function that uses operation and cipherSelection to appropriately interact with the user's selections.
      */
-    public static void operation () {
+
+    //This should be a helper function that returns the choice.
+    public static String operation () {
         Scanner input = new Scanner(System.in);
         System.out.println("Select your operation\n" +
                 "1: encode\n" +
@@ -54,9 +42,11 @@ public class Main {
             }
             whileRunning = false;
         }
+        return selection;
     }
 
-    public static void cipherSelection () {
+    //This should be a helper function that returns the choice.
+    public static String cipherSelection () {
         Scanner input = new Scanner(System.in);
         System.out.println("Select your cipher\n" +
                 "1: Plain Text Cipher\n" +
@@ -82,8 +72,7 @@ public class Main {
             }
             whileRunning = false;
         }
-
-
+        return selection;
     }
 
 }
