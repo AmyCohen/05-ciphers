@@ -34,11 +34,12 @@ public class Cipher {
         //decoded version = println of pretty print
 
         //This method need to invoke the replaceCharacters method
+        replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
 
         return "This should be the decoded version of what the user inputted.";
     }
 
-    public static String replaceCharacters(String payload, String source, String target) {
+    protected String replaceCharacters(String payload, String source, String target) {
         int indexOfLetterSource = 0;
         String replacePayload = "";
         String replaceLetters = "";
@@ -47,19 +48,15 @@ public class Cipher {
 
         for (int i = 0; i < payload.length(); i++) {
             if (!Character.isLetter(payload.charAt(i))) {
-                System.out.println("this hit the exception");
                 replaceLetters = replacePayload + String.valueOf(payload.charAt(i));
                 replacePayload = replaceLetters;
                 continue;
 
             } else
-
                 indexOfLetterSource = source.indexOf(payload.charAt(i));
-            currentLetter = String.valueOf(target.charAt(indexOfLetterSource));
-            System.out.println("Replacement Letter = " + currentLetter);
-            holdingLetter = currentLetter;
-
-            replacePayload = replaceLetters += holdingLetter;
+                currentLetter = String.valueOf(target.charAt(indexOfLetterSource));
+                holdingLetter = currentLetter;
+                replacePayload = replaceLetters += holdingLetter;
         }
         System.out.println(replacePayload);
         return replacePayload;

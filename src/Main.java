@@ -1,10 +1,9 @@
+import Ciphers.ROT13Cipher;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        operation();
-        cipherSelection();
 
         /*
         Add a response that tells the user what selection they have made. Cannot just say "string" + selection. Must include an if statement that checks for the selection to allow for the proper text to display.
@@ -15,12 +14,31 @@ public class Main {
          plaintext: hello
         ciphertext: hello
          */
+        String plainText = "i am starting to be very frustrated";
+        cipherRequest(plainText);
+
     }
 
 
     /*
     Write a function that uses operation and cipherSelection to appropriately interact with the user's selections.
      */
+
+    public static void cipherRequest (String payload) {
+
+        ROT13Cipher rot13 = new ROT13Cipher();
+        operation();
+        cipherSelection();
+
+        if (operation() == "1") {
+            if (cipherSelection() == "2") {
+                rot13.encode(payload);
+            } else if (cipherSelection() == "2") {
+                rot13.decode(payload);
+            }
+
+        }
+    }
 
     //This should be a helper function that returns the choice.
     public static String operation () {
@@ -31,17 +49,13 @@ public class Main {
         System.out.print("Your choice: ");
         String selection = input.nextLine();
         System.out.println();
-
-        Boolean whileRunning = true;
-
-        while (whileRunning) {
-            if (selection.equals("1")) {
-                //encode
-            }else if (selection.equals("2")) {
-                //decode
-            }
-            whileRunning = false;
-        }
+//
+//        Boolean whileRunning = true;
+//
+//        while (whileRunning) {
+//            cipherSelection();
+//            whileRunning = false;
+//        }
         return selection;
     }
 
@@ -58,21 +72,21 @@ public class Main {
         System.out.println();
 
 
-        Boolean whileRunning = true;
+//        Boolean whileRunning = true;
 
-        while (whileRunning) {
-            if (selection.equals("1")) {
-                //plain text cipher
-            } else if (selection.equals("2")) {
-                //ROT 13
-            } else if (selection.equals("3")) {
-                //Caesar Shift
-            } else if (selection.equals("4")) {
-                //Keyword
-            }
-            whileRunning = false;
-        }
+//        while (whileRunning) {
+//            if (selection.equals("1")) {
+//                //plain text cipher
+//            } else if (selection.equals("2")) {
+//                //ROT 13
+//            } else if (selection.equals("3")) {
+//                //Caesar Shift
+//            } else if (selection.equals("4")) {
+//                //Keyword
+//            }
+//            whileRunning = false;
         return selection;
-    }
+        }
+
 
 }
