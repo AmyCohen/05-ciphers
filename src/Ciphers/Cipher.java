@@ -3,6 +3,9 @@ package Ciphers;
 import java.util.Scanner;
 
 public class Cipher {
+    public static void main(String[] args) {
+
+    }
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     public static String REPLACEMENT_ALPHABET = "";
 
@@ -35,22 +38,33 @@ public class Cipher {
         return "This should be the decoded version of what the user inputted.";
     }
 
-    protected String replaceCharacters(String payload, String source, String target) {
-        //Payload: *possible answer* what the customer is inputting
-        //Source: *possible answer* this should be the ALPHABET
-        //Target: *possible answer* this should be the REPLACEMENT_ALPHABET
-
-        int indexOfletterInAlphabet;
-        int indexOfLetterInReplaceAlphabet;
+    public static String replaceCharacters(String payload, String source, String target) {
+        int indexOfLetterSource = 0;
+        String replacePayload = "";
+        String replaceLetters = "";
+        String currentLetter = "";
+        String holdingLetter = "";
 
         for (int i = 0; i < payload.length(); i++) {
+            if (!Character.isLetter(payload.charAt(i))) {
+                System.out.println("this hit the exception");
+                replaceLetters = replacePayload + String.valueOf(payload.charAt(i));
+                replacePayload = replaceLetters;
+                continue;
 
-            indexOfletterInAlphabet = payload.indexOf(payload.charAt(i));
+            } else
 
+                indexOfLetterSource = source.indexOf(payload.charAt(i));
+            currentLetter = String.valueOf(target.charAt(indexOfLetterSource));
+            System.out.println("Replacement Letter = " + currentLetter);
+            holdingLetter = currentLetter;
+
+            replacePayload = replaceLetters += holdingLetter;
         }
-
-        return "i am the replaceCharaters method";
+        System.out.println(replacePayload);
+        return replacePayload;
     }
+
 
     public Cipher () {
 
