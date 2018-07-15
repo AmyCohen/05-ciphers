@@ -21,12 +21,4 @@ public class ROT13Cipher extends Cipher{
 
         return replaceCharacters(payload,REPLACEMENT_ALPHABET,ALPHABET);
     }
-
-
-//    public ROT13Cipher() {
-////        public String input;
-////        public String response;
-//
-//    }
-
 }

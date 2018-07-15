@@ -5,12 +5,6 @@ import java.util.Scanner;
 public class KeywordCipher extends Cipher{
     public static String REPLACEMENT_ALPHABET = "";
 
-
-
-//    public KeywordCipher(String keyword) {
-//
-//    }
-
     public String encode() {
 
         System.out.print("Enter the text you would like to encode: ");

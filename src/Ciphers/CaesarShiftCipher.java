@@ -24,22 +24,20 @@ public class CaesarShiftCipher extends Cipher{
         return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
-        public String decode() {
-            System.out.print("Enter the text you would like decoded: ");
-            Scanner decodingInput = new Scanner(System.in);
-            String payload = decodingInput.nextLine();
+    public String decode() {
+        System.out.print("Enter the text you would like decoded: ");
+        Scanner decodingInput = new Scanner(System.in);
+        String payload = decodingInput.nextLine();
 
-            System.out.print("What number would you like your text shifted by: ");
-            Scanner shiftingLetters = new Scanner(System.in);
-            int shiftedAmount = parseInt(shiftingLetters.nextLine());
+        System.out.print("What number would you like your text shifted by: ");
+        Scanner shiftingLetters = new Scanner(System.in);
+        int shiftedAmount = parseInt(shiftingLetters.nextLine());
 
-            String abcPart1 = ALPHABET.substring(shiftedAmount);
-            String abcPart2 = ALPHABET.substring(0, shiftedAmount);
+        String abcPart1 = ALPHABET.substring(shiftedAmount);
+        String abcPart2 = ALPHABET.substring(0, shiftedAmount);
 
-            REPLACEMENT_ALPHABET = abcPart1 + abcPart2;
+        REPLACEMENT_ALPHABET = abcPart1 + abcPart2;
 
-            return replaceCharacters(payload,REPLACEMENT_ALPHABET,ALPHABET);
-        }
-
-
+        return replaceCharacters(payload,REPLACEMENT_ALPHABET,ALPHABET);
+    }
 }
