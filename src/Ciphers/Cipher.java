@@ -3,9 +3,7 @@ package Ciphers;
 import java.util.Scanner;
 
 public class Cipher {
-//    public static void main(String[] args) {
-//
-//    }
+
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static String REPLACEMENT_ALPHABET = "";
 
@@ -52,8 +50,4 @@ public class Cipher {
         return replacePayload;
     }
 
-
-//    public Cipher () {
-//
-//    }
 }

@@ -1,3 +1,4 @@
+import Ciphers.CaesarShiftCipher;
 import Ciphers.ROT13Cipher;
 
 import java.util.Scanner;
@@ -59,15 +60,9 @@ public class Main {
     //This should be a helper function that returns the choice.
     private static void cipherSelection() {
         ROT13Cipher rot13Cipher = new ROT13Cipher();
+        CaesarShiftCipher caesarShift = new CaesarShiftCipher();
 
         String operationAnswer = operation();
-
-
-
-//            isRunning = false;
-//        }
-
-
 
         Scanner cipherInput = new Scanner(System.in);
         System.out.println("Select your cipher\n" +
@@ -96,6 +91,11 @@ public class Main {
 
             } else if (cipherSelected.equals("3")) {
                 System.out.println("You have selected the Caesar Shift Cipher");
+                if (operationAnswer.equals("1")) {
+                    caesarShift.encode(cipherRequest());
+                } else if (operationAnswer.equals("2")) {
+                    caesarShift.decode(cipherRequest());
+                }
             } else if (cipherSelected.equals("4")) {
                 System.out.println("You have selected the keyword Cipher");
             } else {
@@ -103,7 +103,6 @@ public class Main {
             }
             whileRunning = false;
         }
-//            return cipherSelected;
     }
 }
 
