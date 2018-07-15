@@ -1,4 +1,5 @@
 import Ciphers.CaesarShiftCipher;
+import Ciphers.KeywordCipher;
 import Ciphers.ROT13Cipher;
 
 import java.util.Scanner;
@@ -54,6 +55,7 @@ public class Main {
             }
         isRunning = false;
         }
+        System.out.println();
         return operationSelection;
     }
 
@@ -61,15 +63,15 @@ public class Main {
     private static void cipherSelection() {
         ROT13Cipher rot13Cipher = new ROT13Cipher();
         CaesarShiftCipher caesarShift = new CaesarShiftCipher();
+        KeywordCipher keywordShift = new KeywordCipher();
 
         String operationAnswer = operation();
 
         Scanner cipherInput = new Scanner(System.in);
         System.out.println("Select your cipher\n" +
-                "1: Plain Text Cipher\n" +
-                "2: ROT13 Cipher\n" +
-                "3: Caesar Shift Cipher\n" +
-                "4: Keyword Cipher");
+                "1: ROT13 Cipher\n" +
+                "2: Caesar Shift Cipher\n" +
+                "3: Keyword Cipher");
         System.out.print("Your choice: ");
         String cipherSelected = cipherInput.nextLine();
         System.out.println();
@@ -79,30 +81,33 @@ public class Main {
 
         while (whileRunning) {
             if (cipherSelected.equals("1")) {
-                System.out.println("You have selected the Plain Text Cipher");
-
-            } else if (cipherSelected.equals("2")) {
                 System.out.println("You have selected the ROT13 Cipher");
                 if (operationAnswer.equals("1")) {
-                    rot13Cipher.encode(cipherRequest());
+                    rot13Cipher.encode();
                 } else if (operationAnswer.equals("2")){
-                    rot13Cipher.decode(cipherRequest());
+                    rot13Cipher.decode();
                 }
 
-            } else if (cipherSelected.equals("3")) {
+            } else if (cipherSelected.equals("2")) {
                 System.out.println("You have selected the Caesar Shift Cipher");
                 if (operationAnswer.equals("1")) {
-                    caesarShift.encode(cipherRequest());
+                    caesarShift.encode();
                 } else if (operationAnswer.equals("2")) {
-                    caesarShift.decode(cipherRequest());
+                    caesarShift.decode();
                 }
-            } else if (cipherSelected.equals("4")) {
+            } else if (cipherSelected.equals("3")) {
                 System.out.println("You have selected the keyword Cipher");
+                if (operationAnswer.equals("1")) {
+                    keywordShift.encode();
+                    } else if (operationAnswer.equals("2")) {
+                        keywordShift.decode();
+                    }
             } else {
                 System.out.println("That is an incorrect selection.");
             }
             whileRunning = false;
         }
+        System.out.println();
     }
 }
 

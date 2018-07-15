@@ -7,10 +7,10 @@ import static java.lang.Integer.parseInt;
 public class CaesarShiftCipher extends Cipher{
         public static String REPLACEMENT_ALPHABET = "";
 
-    public String encode(String payload) {
+    public String encode() {
         System.out.print("Enter the text you would like to encode: ");
         Scanner encodingInput = new Scanner(System.in);
-        payload = encodingInput.nextLine();
+        String payload = encodingInput.nextLine();
 
         System.out.print("What number would you like your text shifted by: ");
         Scanner shiftingLetters = new Scanner(System.in);
@@ -24,10 +24,10 @@ public class CaesarShiftCipher extends Cipher{
         return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
-        public String decode(String payload) {
+        public String decode() {
             System.out.print("Enter the text you would like decoded: ");
             Scanner decodingInput = new Scanner(System.in);
-            payload = decodingInput.nextLine();
+            String payload = decodingInput.nextLine();
 
             System.out.print("What number would you like your text shifted by: ");
             Scanner shiftingLetters = new Scanner(System.in);

@@ -7,20 +7,20 @@ public class Cipher {
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static String REPLACEMENT_ALPHABET = "";
 
-    public String encode(String payload) {
+    public String encode() {
         System.out.print("Enter the text you would like to encode: ");
         Scanner input = new Scanner(System.in);
-        payload = input.nextLine();
+        String payload = input.nextLine();
 
         replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
 
         return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
-    public String decode(String payload) {
+    public String decode() {
         System.out.print("Enter the text you would like decoded: ");
         Scanner input = new Scanner(System.in);
-        payload = input.nextLine();
+        String payload = input.nextLine();
 
         replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
 
