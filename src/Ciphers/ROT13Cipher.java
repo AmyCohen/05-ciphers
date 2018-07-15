@@ -23,10 +23,10 @@ public class ROT13Cipher extends Cipher{
     }
 
 
-    public ROT13Cipher() {
-//        public String input;
-//        public String response;
-
-    }
+//    public ROT13Cipher() {
+////        public String input;
+////        public String response;
+//
+//    }
 
 }

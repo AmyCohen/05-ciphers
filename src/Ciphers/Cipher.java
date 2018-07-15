@@ -3,11 +3,11 @@ package Ciphers;
 import java.util.Scanner;
 
 public class Cipher {
-    public static void main(String[] args) {
-
-    }
+//    public static void main(String[] args) {
+//
+//    }
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    public static String REPLACEMENT_ALPHABET = "";
+    private static String REPLACEMENT_ALPHABET = "";
 
     public String encode(String payload) {
         System.out.print("Enter the text you would like to encode: ");
@@ -53,7 +53,7 @@ public class Cipher {
     }
 
 
-    public Cipher () {
-
-    }
+//    public Cipher () {
+//
+//    }
 }
