@@ -14,8 +14,7 @@ public class Main {
          plaintext: hello
         ciphertext: hello
          */
-        String plainText = "i am starting to be very frustrated";
-        cipherRequest(plainText);
+        cipherSelection();
 
     }
 
@@ -24,43 +23,39 @@ public class Main {
     Write a function that uses operation and cipherSelection to appropriately interact with the user's selections.
      */
 
-    public static void cipherRequest (String payload) {
-
-        ROT13Cipher rot13 = new ROT13Cipher();
-        operation();
-        cipherSelection();
-
-        if (operation() == "1") {
-            if (cipherSelection() == "2") {
-                rot13.encode(payload);
-            } else if (cipherSelection() == "2") {
-                rot13.decode(payload);
-            }
-
-        }
+    public static String cipherRequest() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter your text: ");
+        String selection = input.nextLine();
+        return selection;
     }
 
     //This should be a helper function that returns the choice.
-    public static String operation () {
+    private static String operation() {
+        cipherRequest();
+
         Scanner input = new Scanner(System.in);
         System.out.println("Select your operation\n" +
                 "1: encode\n" +
                 "2: decode");
         System.out.print("Your choice: ");
-        String selection = input.nextLine();
+        String operationSelection = input.nextLine();
         System.out.println();
-//
-//        Boolean whileRunning = true;
-//
-//        while (whileRunning) {
-//            cipherSelection();
-//            whileRunning = false;
-//        }
-        return selection;
+
+        if (operationSelection == "1") {
+            System.out.println("You have selected to encode.");
+        } else if (operationSelection == "2") {
+            System.out.println("You have selected to decode.");
+        } else {
+            System.out.println("That is in incorrect selection.");
+        }
+        return operationSelection;
     }
 
     //This should be a helper function that returns the choice.
-    public static String cipherSelection () {
+    private static String cipherSelection() {
+        ROT13Cipher rot13Cipher = new ROT13Cipher();
+
         Scanner input = new Scanner(System.in);
         System.out.println("Select your cipher\n" +
                 "1: Plain Text Cipher\n" +
@@ -68,25 +63,33 @@ public class Main {
                 "3: Caesar Shift Cipher\n" +
                 "4: Keyword Cipher");
         System.out.print("Your choice: ");
-        String selection = input.nextLine();
+        String cipherSelected = input.nextLine();
         System.out.println();
 
 
-//        Boolean whileRunning = true;
+        Boolean whileRunning = true;
 
-//        while (whileRunning) {
-//            if (selection.equals("1")) {
-//                //plain text cipher
-//            } else if (selection.equals("2")) {
-//                //ROT 13
-//            } else if (selection.equals("3")) {
-//                //Caesar Shift
-//            } else if (selection.equals("4")) {
-//                //Keyword
-//            }
-//            whileRunning = false;
-        return selection;
+        while (whileRunning) {
+            if (cipherSelected.equals("1")) {
+                System.out.println("You have selected the Plain Text Cipher");
+            } else if (cipherSelected.equals("2")) {
+                System.out.println("You have selected the ROT13 Cipher");
+                if (operation() == "1") {
+                    rot13Cipher.encode(cipherRequest());
+                } else {
+                    rot13Cipher.decode(cipherRequest());
+                }
+            } else if (cipherSelected.equals("3")) {
+                System.out.println("You have selected the Caesar Shift Cipher");
+            } else if (cipherSelected.equals("4")) {
+                System.out.println("You have selected the keyword Cipher");
+            } else {
+                System.out.println("That is an incorrect selection.");
+            }
+            whileRunning = false;
         }
-
-
+            return cipherSelected;
+    }
 }
+
+

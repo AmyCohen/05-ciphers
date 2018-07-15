@@ -12,31 +12,21 @@ public class Cipher {
     public String encode(String payload) {
         System.out.print("Enter the text you would like to encode: ");
         Scanner input = new Scanner(System.in);
-        // I DON'T KNOW IF THIS LINE IS CORRECT. payload = input.nextLine();
+        payload = input.nextLine();
 
-        //take text and change it to the encoded version
-        //plain text = "customer's input"
-        //encoded version = println of gobbledy-gook
-
-        //This method need to invoke the replaceCharacters method
         replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
 
-        return "This should be the encoded version of what the user inputted.";
+        return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
     public String decode(String payload) {
         System.out.print("Enter the text you would like decoded: ");
         Scanner input = new Scanner(System.in);
-        // I DON'T KNOW IF THIS LINE IS CORRECT. payload = input.nextLine();
+        payload = input.nextLine();
 
-        //take text and change it to the decoded version
-        //cipher text = "customer's gobbledy-gook"
-        //decoded version = println of pretty print
-
-        //This method need to invoke the replaceCharacters method
         replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
 
-        return "This should be the decoded version of what the user inputted.";
+        return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
     protected String replaceCharacters(String payload, String source, String target) {
