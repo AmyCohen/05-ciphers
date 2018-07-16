@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cipher {
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static String REPLACEMENT_ALPHABET = "";
+    private static String REPLACEMENT_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     public String encode() {
         System.out.print("Enter the text you would like to encode: ");
