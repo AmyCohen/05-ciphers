@@ -58,7 +58,6 @@ public class Main {
             }
             whileRunning = false;
         }
-        System.out.println();
     }
 
     private static String operation() {
