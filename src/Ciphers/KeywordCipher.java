@@ -16,28 +16,27 @@ public class KeywordCipher extends Cipher{
         String keyword = keywordInput.nextLine();
 
         String modifiedKeyword = "";
-
         for (int i = 0; i < keyword.length(); i++) {
             if(!modifiedKeyword.contains(String.valueOf(keyword.charAt(i)))) {
                 modifiedKeyword += String.valueOf(keyword.charAt(i));
             }
         }
-        int keywordLength = modifiedKeyword.length();
 
-        String abcPart1 = ALPHABET.substring(keywordLength);
-        System.out.println(abcPart1);
-        System.out.println(keywordLength);
-        REPLACEMENT_ALPHABET = abcPart1 + modifiedKeyword;
+        String holdingAlphabet = "";
+        for (int i = 0; i < ALPHABET.length(); i++) {
+            if(!modifiedKeyword.contains(String.valueOf(ALPHABET.charAt(i)))) {
+                holdingAlphabet += String.valueOf(ALPHABET.charAt(i));
+            }
+        }
 
-        System.out.println(ALPHABET);
-        System.out.println(REPLACEMENT_ALPHABET);
+        REPLACEMENT_ALPHABET = modifiedKeyword + holdingAlphabet;
 
         return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
     public String decode() {
 
-        System.out.print("Enter the text you would like to encode: ");
+        System.out.print("Enter the text you would like to decode: ");
         Scanner encodingInput = new Scanner(System.in);
         String payload = encodingInput.nextLine();
 
@@ -52,10 +51,15 @@ public class KeywordCipher extends Cipher{
                 modifiedKeyword += String.valueOf(keyword.charAt(i));
             }
         }
-        int keywordLength = modifiedKeyword.length();
 
-        String abcPart1 = ALPHABET.substring(keywordLength);
-        REPLACEMENT_ALPHABET = abcPart1 + modifiedKeyword;
+        String holdingAlphabet = "";
+        for (int i = 0; i < ALPHABET.length(); i++) {
+            if(!modifiedKeyword.contains(String.valueOf(ALPHABET.charAt(i)))) {
+                holdingAlphabet += String.valueOf(ALPHABET.charAt(i));
+            }
+        }
+
+        REPLACEMENT_ALPHABET = modifiedKeyword + holdingAlphabet;
 
         return replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
     }
