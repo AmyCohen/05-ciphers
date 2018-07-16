@@ -1,4 +1,5 @@
 import Ciphers.CaesarShiftCipher;
+import Ciphers.Cipher;
 import Ciphers.KeywordCipher;
 import Ciphers.ROT13Cipher;
 
@@ -10,6 +11,7 @@ public class Main {
     }
 
     public static void cipherRequest() {
+        Cipher plaintext = new Cipher();
         ROT13Cipher rot13Cipher = new ROT13Cipher();
         CaesarShiftCipher caesarShift = new CaesarShiftCipher();
         KeywordCipher keywordShift = new KeywordCipher();
@@ -21,6 +23,13 @@ public class Main {
 
         while (whileRunning) {
             if (cipherAnswer.equals("1")) {
+                System.out.println("You have selected the Plain Text Cipher");
+                if (operationAnswer.equals("1")) {
+                    plaintext.encode();
+                } else if (operationAnswer.equals("2")) {
+                    plaintext.decode();
+                }
+            }else if (cipherAnswer.equals("2")) {
                 System.out.println("You have selected the ROT13 Cipher");
                 if (operationAnswer.equals("1")) {
                     rot13Cipher.encode();
@@ -28,7 +37,7 @@ public class Main {
                     rot13Cipher.decode();
                 }
 
-            } else if (cipherAnswer.equals("2")) {
+            } else if (cipherAnswer.equals("3")) {
                 System.out.println("You have selected the Caesar Shift Cipher");
                 if (operationAnswer.equals("1")) {
                     caesarShift.encode();
@@ -36,7 +45,7 @@ public class Main {
                     caesarShift.decode();
                 }
 
-            } else if (cipherAnswer.equals("3")) {
+            } else if (cipherAnswer.equals("4")) {
                 System.out.println("You have selected the keyword Cipher");
                 if (operationAnswer.equals("1")) {
                     keywordShift.encode();
@@ -80,9 +89,10 @@ public class Main {
     private static String cipherSelection() {
         Scanner cipherInput = new Scanner(System.in);
         System.out.println("Select your cipher\n" +
-                "1: ROT13 Cipher\n" +
-                "2: Caesar Shift Cipher\n" +
-                "3: Keyword Cipher");
+                "1: Plain Text Cipher\n" +
+                "2: ROT13 Cipher\n" +
+                "3: Caesar Shift Cipher\n" +
+                "4: Keyword Cipher");
         System.out.print("Your choice: ");
         String cipherSelected = cipherInput.nextLine();
         System.out.println();
