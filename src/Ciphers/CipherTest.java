@@ -10,7 +10,7 @@ class CipherTest extends Cipher{
     void encodeShortWord() {
         String payload = "java";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "java";
 
         assertEquals(expected, actual);
@@ -20,7 +20,7 @@ class CipherTest extends Cipher{
     void encodeEmptyString() {
         String payload = "";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "";
 
         assertEquals(expected, actual);
@@ -30,7 +30,7 @@ class CipherTest extends Cipher{
     void encodeLongWithWhiteSpaceAndNonLetters() {
         String payload = "i like java a lot!";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "i like java a lot!";
 
         assertEquals(expected, actual);
@@ -40,7 +40,7 @@ class CipherTest extends Cipher{
     void decodeShortWord() {
         String payload = "java";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "java";
 
         assertEquals(expected, actual);
@@ -50,7 +50,7 @@ class CipherTest extends Cipher{
     void decodeEmptyString() {
         String payload = "";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "";
 
         assertEquals(expected, actual);
@@ -60,7 +60,7 @@ class CipherTest extends Cipher{
     void decodeLongWithWhiteSpaceAndNonLetters() {
         String payload = "i like java a lot!";
 
-        String actual = replaceCharacters(payload, ALPHABET, Cipher.REPLACEMENT_ALPHABET);
+        String actual = replaceCharacters(payload, ALPHABET, ALPHABET);
         String expected = "i like java a lot!";
 
         assertEquals(expected, actual);

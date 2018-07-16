@@ -1,32 +1,18 @@
 package Ciphers;
 
-import java.util.Scanner;
-
 public class Cipher {
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    public static String REPLACEMENT_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-    public String encode() {
-        System.out.println(); //added space for greater readability in the console
-        System.out.print("Enter the text you would like to encode: ");
-        Scanner input = new Scanner(System.in);
-        String payload = input.nextLine();
-
-        replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
-
-        return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
+    public Cipher () {
     }
 
-    public String decode() {
-        System.out.println(); //added space for greater readability in the console
-        System.out.print("Enter the text you would like decoded: ");
-        Scanner input = new Scanner(System.in);
-        String payload = input.nextLine();
+    public String encode(String payload) {
+        return replaceCharacters(payload, ALPHABET, ALPHABET);
+    }
 
-        replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
-
-        return replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
+    public String decode(String payload) {
+        return replaceCharacters(payload, ALPHABET, ALPHABET);
     }
 
     protected String replaceCharacters(String payload, String source, String target) {
