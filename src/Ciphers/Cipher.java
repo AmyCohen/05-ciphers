@@ -5,28 +5,46 @@ import java.util.Scanner;
 public class Cipher {
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    public static String REPLACEMENT_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static String REPLACEMENT_ALPHABET = "";
+//    public String REPLACEMENT_ALPHABET;
 
-    public String encode() {
+    private String consoleInput = "";
+    private Scanner input = new Scanner(System.in);
+    private String plainText= input.nextLine();
+
+
+    public Cipher () {
         System.out.println(); //added space for greater readability in the console
-        System.out.print("Enter the text you would like to encode: ");
-        Scanner input = new Scanner(System.in);
-        String payload = input.nextLine();
 
-        replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
-
-        return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
+        this.consoleInput = "Enter the text you would like to encode: ";
+        this.input = input;
+        this.plainText = "";
+        this.REPLACEMENT_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     }
 
-    public String decode() {
+    public String encode(String payload) {
+//    public String encode() {
+//        System.out.println(); //added space for greater readability in the console
+//        System.out.print("Enter the text you would like to encode: ");
+//        Scanner input = new Scanner(System.in);
+//        String payload = input.nextLine();
+        String console =
+        payload = this.plainText;
+
+        replaceCharacters(payload, ALPHABET, this.REPLACEMENT_ALPHABET);
+
+        return replaceCharacters(payload, ALPHABET, this.REPLACEMENT_ALPHABET);
+    }
+
+    public String decode(String payload) {
         System.out.println(); //added space for greater readability in the console
         System.out.print("Enter the text you would like decoded: ");
         Scanner input = new Scanner(System.in);
-        String payload = input.nextLine();
+        payload = input.nextLine();
 
-        replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
+        replaceCharacters(payload, this.REPLACEMENT_ALPHABET, ALPHABET);
 
-        return replaceCharacters(payload, REPLACEMENT_ALPHABET, ALPHABET);
+        return replaceCharacters(payload, this.REPLACEMENT_ALPHABET, ALPHABET);
     }
 
     protected String replaceCharacters(String payload, String source, String target) {

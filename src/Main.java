@@ -5,16 +5,14 @@ import Ciphers.ROT13Cipher;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class Main {
     public static void main(String[] args) {
         cipherRequest();
     }
 
     public static void cipherRequest() {
-        Cipher plaintext = new Cipher();
-        ROT13Cipher rot13Cipher = new ROT13Cipher();
-        CaesarShiftCipher caesarShift = new CaesarShiftCipher();
-        KeywordCipher keywordShift = new KeywordCipher();
 
         String operationAnswer = operation();
         String cipherAnswer = cipherSelection();
@@ -23,34 +21,42 @@ public class Main {
 
         while (whileRunning) {
             if (cipherAnswer.equals("1")) {
+                Cipher plaintext = new Cipher();
                 System.out.println("You have selected the Plain Text Cipher");
+                
                 if (operationAnswer.equals("1")) {
-                    plaintext.encode();
+                    plaintext.encode(createPayload());
                 } else if (operationAnswer.equals("2")) {
-                    plaintext.decode();
+                    plaintext.decode(createPayload());
                 }
             }else if (cipherAnswer.equals("2")) {
+                ROT13Cipher rot13Cipher = new ROT13Cipher();
                 System.out.println("You have selected the ROT13 Cipher");
+
                 if (operationAnswer.equals("1")) {
-                    rot13Cipher.encode();
+                    rot13Cipher.encode(createPayload());
                 } else if (operationAnswer.equals("2")){
-                    rot13Cipher.decode();
+                    rot13Cipher.decode(createPayload());
                 }
 
             } else if (cipherAnswer.equals("3")) {
                 System.out.println("You have selected the Caesar Shift Cipher");
+                CaesarShiftCipher caesarShift = new CaesarShiftCipher(createShiftedNumber());
+
                 if (operationAnswer.equals("1")) {
-                    caesarShift.encode();
+                    caesarShift.encode(createPayload());
                 } else if (operationAnswer.equals("2")) {
-                    caesarShift.decode();
+                    caesarShift.decode(createPayload());
                 }
 
             } else if (cipherAnswer.equals("4")) {
                 System.out.println("You have selected the keyword Cipher");
+                KeywordCipher keywordShift = new KeywordCipher(createKeyword());
+
                 if (operationAnswer.equals("1")) {
-                    keywordShift.encode();
+                    keywordShift.encode(createPayload());
                 } else if (operationAnswer.equals("2")) {
-                    keywordShift.decode();
+                    keywordShift.decode(createPayload());
                 }
 
             } else {
@@ -97,5 +103,27 @@ public class Main {
         System.out.println();
 
         return cipherSelected;
+    }
+
+    private static String createPayload() {
+        System.out.print("Enter your text: ");
+        Scanner encodingInput = new Scanner(System.in);
+        String payload = encodingInput.nextLine();
+
+        return payload;
+    }
+
+    private static String createKeyword() {
+        System.out.print("Enter your keyword (then enter twice): ");
+        Scanner keywordInput = new Scanner(System.in);
+        String keyword = keywordInput.nextLine();
+        return keyword;
+    }
+
+    private static int createShiftedNumber() {
+        System.out.print("Enter shift amount [0-25]: ");
+        Scanner shiftingLetters = new Scanner(System.in);
+        int shiftedAmount = parseInt(shiftingLetters.nextLine());
+        return shiftedAmount;
     }
 }
