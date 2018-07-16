@@ -8,6 +8,7 @@ public class Cipher {
     public static String REPLACEMENT_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     public String encode() {
+        System.out.println(); //added space for greater readability in the console
         System.out.print("Enter the text you would like to encode: ");
         Scanner input = new Scanner(System.in);
         String payload = input.nextLine();
@@ -18,6 +19,7 @@ public class Cipher {
     }
 
     public String decode() {
+        System.out.println(); //added space for greater readability in the console
         System.out.print("Enter the text you would like decoded: ");
         Scanner input = new Scanner(System.in);
         String payload = input.nextLine();
@@ -46,7 +48,7 @@ public class Cipher {
                 holdingLetter = currentLetter;
                 replacePayload = replaceLetters += holdingLetter;
         }
-        System.out.println(replacePayload);
+        System.out.println("   Answer: " + replacePayload);
         return replacePayload;
     }
 
