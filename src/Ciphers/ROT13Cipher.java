@@ -1,7 +1,5 @@
 package Ciphers;
 
-import java.util.Scanner;
-
 public class ROT13Cipher extends Cipher{
 
     public static final String REPLACEMENT_ALPHABET = "nopqrstuvwxyzabcdefghijklm";
