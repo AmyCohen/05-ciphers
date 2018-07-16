@@ -1,35 +1,14 @@
 package Ciphers;
 
-import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
-
-
 public class CaesarShiftCipher extends Cipher{
-private int shiftedAmount;
+    private int shiftedAmount;
+    public static String REPLACEMENT_ALPHABET = "";
 
-public CaesarShiftCipher (int shiftedAmount) {
-    this.shiftedAmount = shiftedAmount;
-        }
-        public static String REPLACEMENT_ALPHABET = "";
-        /*
-        * public int shift amount
-        *
-        *
-        * constructor(shift amount)
-        * this.shift = shift
-        *
-        * */
+    public CaesarShiftCipher (int shiftedAmount) {
+        this.shiftedAmount = shiftedAmount;
+    }
+
     public String encode(String payload) {
-//        System.out.println(); //added space for greater readability in the console
-//        System.out.print("Enter the text you would like to encode: ");
-//        Scanner encodingInput = new Scanner(System.in);
-//        payload = encodingInput.nextLine();
-//        System.out.println(); //added space for greater readability in the console
-
-//        System.out.print("Enter shift amount [0-25]: ");
-//        Scanner shiftingLetters = new Scanner(System.in);
-//        shiftedAmount = parseInt(shiftingLetters.nextLine());
         System.out.println(); //added space for greater readability in the console
 
         String abcPart1 = ALPHABET.substring(shiftedAmount);
@@ -44,16 +23,6 @@ public CaesarShiftCipher (int shiftedAmount) {
     }
 
     public String decode(String payload) {
-        System.out.println(); //added space for greater readability in the console
-        System.out.print("Enter the text you would like decoded: ");
-        Scanner decodingInput = new Scanner(System.in);
-        payload = decodingInput.nextLine();
-        System.out.println(); //added space for greater readability in the console
-
-        System.out.print("What number would you like your text shifted by: ");
-        Scanner shiftingLetters = new Scanner(System.in);
-        int shiftedAmount = parseInt(shiftingLetters.nextLine());
-        System.out.println(); //added space for greater readability in the console
 
         String abcPart1 = ALPHABET.substring(shiftedAmount);
         String abcPart2 = ALPHABET.substring(0, shiftedAmount);

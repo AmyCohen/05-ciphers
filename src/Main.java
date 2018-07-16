@@ -30,8 +30,8 @@ public class Main {
                     plaintext.decode(createPayload());
                 }
             }else if (cipherAnswer.equals("2")) {
+                System.out.println("You have selected the ROT13 Cipher. Please press enter.");
                 ROT13Cipher rot13Cipher = new ROT13Cipher();
-                System.out.println("You have selected the ROT13 Cipher");
 
                 if (operationAnswer.equals("1")) {
                     rot13Cipher.encode(createPayload());

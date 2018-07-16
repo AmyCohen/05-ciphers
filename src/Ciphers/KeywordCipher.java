@@ -32,7 +32,6 @@ public class KeywordCipher extends Cipher{
         System.out.println(" Standard: " + ALPHABET);
         System.out.println("Encrypted: " + REPLACEMENT_ALPHABET);
 
-
         return replaceCharacters(payload, ALPHABET, REPLACEMENT_ALPHABET);
     }
 
