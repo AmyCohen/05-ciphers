@@ -23,7 +23,7 @@ public class Main {
             if (cipherAnswer.equals("1")) {
                 Cipher plaintext = new Cipher();
                 System.out.println("You have selected the Plain Text Cipher");
-                
+
                 if (operationAnswer.equals("1")) {
                     plaintext.encode(createPayload());
                 } else if (operationAnswer.equals("2")) {
@@ -121,7 +121,7 @@ public class Main {
     }
 
     private static int createShiftedNumber() {
-        System.out.print("Enter shift amount [0-25]: ");
+        System.out.print("Enter shift amount [0-25] (then enter twice): ");
         Scanner shiftingLetters = new Scanner(System.in);
         int shiftedAmount = parseInt(shiftingLetters.nextLine());
         return shiftedAmount;
