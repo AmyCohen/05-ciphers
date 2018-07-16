@@ -6,24 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        /*
-        Add a response that tells the user what selection they have made. Cannot just say "string" + selection. Must include an if statement that checks for the selection to allow for the proper text to display.
-
-        if (selection.equals("1") {
-        System.out.println("You're encoding with the Plain Text Cipher.")
-
-         plaintext: hello
-        ciphertext: hello
-         */
-//        cipherSelection();
-cipherRequest();
+        cipherRequest();
     }
-
-
-    /*
-    Write a function that uses operation and cipherSelection to appropriately interact with the user's selections.
-     */
 
     public static void cipherRequest() {
         ROT13Cipher rot13Cipher = new ROT13Cipher();

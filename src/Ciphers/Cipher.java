@@ -46,7 +46,7 @@ public class Cipher {
                 holdingLetter = currentLetter;
                 replacePayload = replaceLetters += holdingLetter;
         }
-        System.out.println(replacePayload);
+//        System.out.println("Plain Text: " + replacePayload);
         return replacePayload;
     }
 
